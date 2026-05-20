@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, request, jsonify, send_from_directory
 
 BASE_DIR = os.path.dirname(__file__)
-FRONT_DIR = os.path.abspath(os.path.join(BASE_DIR, ".."))
+FRONT_DIR = os.path.abspath(os.path.join(BASE_DIR, "NKO"))
 DB_PATH = os.path.join(BASE_DIR, "db.sqlite")
 
 app = Flask(
@@ -139,7 +139,7 @@ def get_current_user():
     if not row:
         return None
     return row_to_dict(row)
-
+    
 
 # ========================= ROUTES: AUTH =========================
 
