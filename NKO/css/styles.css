@@ -2983,3 +2983,16 @@ button {
     display: block !important;
 }
 
+#authModal {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    background: white !important;
+    padding: 30px !important;
+    border-radius: 48px !important;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3) !important;
+    z-index: 100000 !important;
+    width: 380px !important;
+    text-align: center !important;
+}
