@@ -2991,3 +2991,10 @@ button {
     flex-direction: column !important;
     gap: 10px !important;
 }
+
+
+#closeAuthModalBtn {
+    position: relative;
+    z-index: 100001;
+    cursor: pointer;
+}
