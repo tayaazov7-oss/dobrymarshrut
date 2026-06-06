@@ -189,152 +189,104 @@
 
 
 
-<!-- ========================= МОДАЛЬНОЕ ОКНО ВХОДА/РЕГИСТРАЦИИ ========================= -->
 
-<div id="authModal" class="auth-modal" style="display: none;">
-    <div class="auth-modal-content">
-        <span class="auth-modal-close" id="closeAuthModal">&times;</span>
-        
-        <!-- Шаг 1: Выбор роли -->
-        <div id="roleSelection" class="auth-role-selection">
-            <h3>Выберите тип аккаунта</h3>
-            <div class="auth-role-buttons">
-                <button id="roleVolunteer" class="auth-role-btn">🤝 Волонтёр</button>
-                <button id="roleOrganization" class="auth-role-btn">🏢 Организация</button>
-            </div>
-        </div>
 
-        <!-- Шаг 2: Форма волонтёра (скрыта по умолчанию) -->
-        <div id="volunteerForm" class="auth-form" style="display: none;">
-            <h3>Регистрация волонтёра</h3>
-            <form id="volunteerRegisterForm">
-                <input type="text" id="volunteerName" placeholder="ФИО" required>
-                <input type="date" id="volunteerBirthdate" placeholder="Дата рождения" required>
-                <input type="tel" id="volunteerPhone" placeholder="Телефон" required>
-                <input type="email" id="volunteerEmail" placeholder="Email" required>
-                <input type="password" id="volunteerPassword" placeholder="Пароль" required>
-                <button type="submit" class="auth-submit-btn">Зарегистрироваться</button>
-                <button type="button" id="gosuslugiBtn" class="auth-gosuslugi-btn">Войти через Госуслуги</button>
-            </form>
-            <p class="auth-switch">Уже есть аккаунт? <a href="#" id="switchToLogin">Войти</a></p>
-        </div>
 
-        <!-- Шаг 3: Форма входа (для всех) -->
-        <div id="loginForm" class="auth-form" style="display: none;">
-            <h3>Вход</h3>
-            <form id="loginFormSubmit">
-                <input type="email" id="loginEmail" placeholder="Email" required>
-                <input type="password" id="loginPassword" placeholder="Пароль" required>
-                <button type="submit" class="auth-submit-btn">Войти</button>
-            </form>
-            <p class="auth-switch">Нет аккаунта? <a href="#" id="switchToRegister">Зарегистрироваться</a></p>
-        </div>
-    </div>
+<!-- ========================= МОДАЛЬНОЕ ОКНО ========================= -->
+
+<div id="authModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 10001; width: 320px; text-align: center;">
+    <h3>Выберите тип аккаунта</h3>
+    <button id="roleVolunteerBtn" style="margin: 10px; padding: 10px 20px;">🤝 Волонтёр</button>
+    <button id="roleOrganizationBtn" style="margin: 10px; padding: 10px 20px;">🏢 Организация</button>
+    <br>
+    <button id="closeAuthModalBtn" style="margin-top: 20px; padding: 5px 10px;">Закрыть</button>
+</div>
+
+<div id="volunteerFormModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 10001; width: 320px;">
+    <h3>Регистрация волонтёра</h3>
+    <input type="text" id="volName" placeholder="ФИО" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
+    <input type="date" id="volBirthdate" placeholder="Дата рождения" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
+    <input type="tel" id="volPhone" placeholder="Телефон" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
+    <input type="email" id="volEmail" placeholder="Email" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
+    <input type="password" id="volPassword" placeholder="Пароль" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
+    <button id="submitVolunteerBtn" style="width: 100%; padding: 10px; background: #e67e22; color: white; border: none;">Зарегистрироваться</button>
+    <button id="gosuslugiBtn" style="width: 100%; margin-top: 10px; padding: 10px; background: #1e3a8a; color: white; border: none;">Войти через Госуслуги</button>
+    <button id="backToRoleBtn" style="margin-top: 10px; padding: 5px 10px;">Назад</button>
+</div>
+
+<div id="loginFormModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 10001; width: 320px;">
+    <h3>Вход</h3>
+    <input type="email" id="loginEmail" placeholder="Email" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
+    <input type="password" id="loginPassword" placeholder="Пароль" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
+    <button id="submitLoginBtn" style="width: 100%; padding: 10px; background: #e67e22; color: white; border: none;">Войти</button>
+    <button id="backToRoleFromLoginBtn" style="margin-top: 10px; padding: 5px 10px;">Назад</button>
 </div>
 
 <script>
-    // Элементы модального окна
+    // Получаем элементы
     const authModal = document.getElementById('authModal');
+    const volunteerFormModal = document.getElementById('volunteerFormModal');
+    const loginFormModal = document.getElementById('loginFormModal');
     const loginBtn = document.getElementById('loginBtn');
-    const closeAuthModal = document.getElementById('closeAuthModal');
-    const roleSelection = document.getElementById('roleSelection');
-    const volunteerForm = document.getElementById('volunteerForm');
-    const loginForm = document.getElementById('loginForm');
-    const roleVolunteerBtn = document.getElementById('roleVolunteerBtn');
-    const roleOrganizationBtn = document.getElementById('roleOrganizationBtn');
-    const switchToLoginFromReg = document.getElementById('switchToLogin');
-const switchToRegFromLogin = document.getElementById('switchToRegister');
 
-    // Открыть окно при клике на кнопку "Войти / Зарегистрироваться"
+    // Открыть главное окно
     if (loginBtn) {
-        loginBtn.addEventListener('click', () => {
-            authModal.style.display = 'flex';
-            roleSelection.style.display = 'block';
-            volunteerForm.style.display = 'none';
-            loginForm.style.display = 'none';
-        });
+        loginBtn.onclick = () => {
+            authModal.style.display = 'block';
+            volunteerFormModal.style.display = 'none';
+            loginFormModal.style.display = 'none';
+        };
     }
 
-    // Закрыть окно
-    if (closeAuthModal) {
-        closeAuthModal.addEventListener('click', () => {
-            authModal.style.display = 'none';
-        });
-    }
+    // Закрыть главное окно
+    document.getElementById('closeAuthModalBtn').onclick = () => {
+        authModal.style.display = 'none';
+    };
 
-    // Закрыть по клику на фон
-    window.addEventListener('click', (e) => {
-        if (e.target === authModal) {
-            authModal.style.display = 'none';
-        }
-    });
+    // Выбор Волонтёра
+    document.getElementById('roleVolunteerBtn').onclick = () => {
+        authModal.style.display = 'none';
+        volunteerFormModal.style.display = 'block';
+    };
 
-    // Выбор роли Волонтёр
-    if (roleVolunteerBtn) {
-        roleVolunteerBtn.addEventListener('click', () => {
-            roleSelection.style.display = 'none';
-            volunteerForm.style.display = 'block';
-        });
-    }
+    // Выбор Организации (заглушка)
+    document.getElementById('roleOrganizationBtn').onclick = () => {
+        alert('Регистрация для организаций скоро появится');
+        authModal.style.display = 'none';
+    };
 
-    // Выбор роли Организация (пока заглушка)
-    if (roleOrganizationBtn) {
-        roleOrganizationBtn.addEventListener('click', () => {
-            alert('Регистрация для организаций скоро появится');
-            roleSelection.style.display = 'none';
-            // здесь можно будет добавить форму для организаций
-        });
-    }
+    // Назад из формы волонтёра
+    document.getElementById('backToRoleBtn').onclick = () => {
+        volunteerFormModal.style.display = 'none';
+        authModal.style.display = 'block';
+    };
 
-    // Переключение на форму входа из регистрации
-    if (switchToLoginFromReg) {
-        switchToLoginFromReg.addEventListener('click', (e) => {
-            e.preventDefault();
-            volunteerForm.style.display = 'none';
-            loginForm.style.display = 'block';
-        });
-    }
+    // Назад из формы входа
+    document.getElementById('backToRoleFromLoginBtn').onclick = () => {
+        loginFormModal.style.display = 'none';
+        authModal.style.display = 'block';
+    };
 
-    // Переключение на форму регистрации из входа
-    if (switchToRegFromLogin) {
-        switchToRegFromLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            loginForm.style.display = 'none';
-            roleSelection.style.display = 'block';
-            volunteerForm.style.display = 'none';
-        });
-    }
+    // Отправка регистрации волонтёра
+    document.getElementById('submitVolunteerBtn').onclick = () => {
+        const name = document.getElementById('volName').value;
+        alert(`Спасибо за регистрацию, ${name}! Мы свяжемся с вами.`);
+        volunteerFormModal.style.display = 'none';
+    };
 
-    // Отправка формы регистрации волонтёра
-    const volunteerRegisterForm = document.getElementById('volunteerRegisterForm');
-    if (volunteerRegisterForm) {
-        volunteerRegisterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('volunteerName').value;
-            alert(`Спасибо за регистрацию, ${name}! Мы свяжемся с вами.`);
-            authModal.style.display = 'none';
-        });
-    }
+    // Отправка входа
+    document.getElementById('submitLoginBtn').onclick = () => {
+        alert('Вход выполнен! Добро пожаловать.');
+        loginFormModal.style.display = 'none';
+    };
 
-    // Отправка формы входа
-    const loginFormSubmit = document.getElementById('loginFormSubmit');
-    if (loginFormSubmit) {
-        loginFormSubmit.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Вход выполнен! Добро пожаловать.');
-            authModal.style.display = 'none';
-        });
-    }
-
-    // Кнопка Госуслуг (заглушка)
-    const gosuslugiBtn = document.getElementById('gosuslugiBtn');
-    if (gosuslugiBtn) {
-        gosuslugiBtn.addEventListener('click', () => {
-            alert('Перенаправление на портал Госуслуг...');
-        });
-    }
+    // Госуслуги
+    document.getElementById('gosuslugiBtn').onclick = () => {
+        alert('Перенаправление на портал Госуслуг...');
+    };
 </script>
 
+    
 <!-- ========================= SCRIPTS ========================= -->
 
 <script src="js/api.js"></script>
