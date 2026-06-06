@@ -334,5 +334,21 @@
 <script src="js/map.js"></script>
 <script src="js/app.js"></script>
 
+
+<script>
+    // Принудительно вешаем обработчик на кнопку входа
+    const loginBtn = document.getElementById('loginBtn');
+    const authModal = document.getElementById('authModal');
+    
+    if (loginBtn && authModal) {
+        // Убираем все старые обработчики
+        loginBtn.onclick = function(e) {
+            e.preventDefault();
+            authModal.style.display = 'block';
+        };
+    }
+</script>
+
+    
 </body>
 </html>
