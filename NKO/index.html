@@ -295,28 +295,19 @@
 
 
 <script>
-    // Полностью переопределяем открытие окна
-    document.addEventListener('DOMContentLoaded', function() {
-        const loginBtn = document.getElementById('loginBtn');
-        const authModal = document.getElementById('authModal');
-        
-        if (loginBtn && authModal) {
-            // Убираем любые старые обработчики
-            loginBtn.replaceWith(loginBtn.cloneNode(true));
-            const newLoginBtn = document.getElementById('loginBtn');
-            
-            // Добавляем новый обработчик
-            newLoginBtn.onclick = function(e) {
-                e.preventDefault();
-                authModal.style.display = 'block';
-            };
-        }
-        
-        // Гарантированно скрываем окно при загрузке
-        if (authModal) {
-            authModal.style.display = 'none';
+    // Принудительно скрываем окно после загрузки страницы
+    window.addEventListener('load', function() {
+        const modal = document.getElementById('authModal');
+        if (modal) {
+            modal.style.display = 'none';
         }
     });
+
+    // Открываем окно только по клику
+    document.getElementById('loginBtn').onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('authModal').style.display = 'block';
+    };
 </script>
     
 </body>
