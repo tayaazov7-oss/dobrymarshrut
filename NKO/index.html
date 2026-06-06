@@ -309,6 +309,24 @@
         document.getElementById('authModal').style.display = 'block';
     };
 </script>
+
+<script>
+    // Полностью блокируем показ окна при загрузке
+    setTimeout(function() {
+        const modal = document.getElementById('authModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }, 0);
+    
+    // Открываем только по клику
+    document.getElementById('loginBtn').onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('authModal').style.display = 'block';
+    };
+</script>
+
+
     
 </body>
 </html>
