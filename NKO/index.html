@@ -1,1 +1,349 @@
-<!DOCTYPE html><html lang="ru"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Добрый Маршрут</title>    <!-- CSS -->    <link rel="stylesheet" href="css/styles.css">    <link rel="stylesheet" href="css/map.css">    <!-- Яндекс.Карты -->    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2a2f9206-4685-4211-9977-ffcacd513c9f"></script></head><body><!-- ========================= HEADER ========================= --><header class="header">    <div class="header-left">        <!-- <img src="img/rosatom-logo.svg" class="logo" alt="Росатом"> -->        <!-- отображение города -->        <div id="currentCity" class="city-tag">            <img src="img/icons/location.svg">            <span id="cityName">Город</span>            <a href="#" id="changeCity" class="change-link">изменить</a>        </div>    </div>    <nav class="nav">        <a href="#map" class="nav-item active">Карта заданийa>        <a href="#about" class="nav-item">О проекте</a>        <a href="#contacts" class="nav-item">Контакты</a>    </nav>    <div class="header-right">        <!-- кнопка для входа / профиль -->        <div id="userPanel">            <button                id="loginBtn"                class="login-btn"            >                Войти            </button>        </div>        <button            class="add-initiative-btn"            id="addInitiativeBtn"        >            Предложить инициативу        </button>    </div></header><!-- ========================= HERO SECTION ========================= --><section class="hero">    <div class="hero-content">        <h1>             Помогай по пути<br>            <span class="accent-orange">Добрый Маршрут</span><br>    в Ростове-на-Дону        </h1>        <p class="hero-subtitle">            Находи задания рядом с собой: купить продукты, сходить в аптеку, помочь донести сумки        </p>        <a href="#map" class="btn-large">Перейти к карте</a>    </div>    <div class="hero-illustration">        <img src="img/hero-map-girl.png"             alt="Иллюстрация: девушка выбирает метку на карте">    </div></section></section><!-- ========================= MAP SECTION ========================= --><section id="map" class="map-section">    <div class="map-layout">        <!-- ЛЕВАЯ КОЛОНКА: список НКО и фильтры -->        <aside class="nko-panel">            <div class="nko-panel-header">                Задания в                <span class="city-dropdown">                    <button id="cityDropdownToggle" type="button" class="nko-city-link">городе</button>                    <div id="cityDropdownMenu" class="city-dropdown-menu"></div>                </span>                <span id="nkoCityTitle"></span>            </div>            <!-- Поиск -->            <div class="nko-search-row">                <input type="text" id="searchInput" class="nko-search-input"                       placeholder="Поиск заданий">            </div>            <!-- Чипы категорий -->            <div class="nko-chips-row">    <button class="chip chip-orange" data-category="Продукты">🥛 Продукты</button>    <button class="chip chip-pink" data-category="Лекарства">💊 Лекарства</button>    <button class="chip chip-green" data-category="Сопровождение">🚶 Сопровождение</button>    <button class="chip chip-blue" data-category="Уборка">🧹 Уборка</button>    <button class="chip chip-violet" data-category="Оплата услуг">💰 Оплата услуг</button>    <button class="chip chip-teal" data-category="Срочная помощь">⚠️ Срочная помощь</button></div>            <!-- Формат помощи, сортировки и т.п. (пока просто визуал) -->            <div class="nko-filters-mini">                <div class="nko-filter-group">                    <span class="filter-title">Формат помощи</span>                    <label><input type="checkbox" checked> Очная помощь</label>                    <label><input type="checkbox"> Сбор вещей</label>                    <label><input type="checkbox"> Показывать только активные наборы</label>                </div>            </div>            <!-- Список карточек НКО -->            <div id="nkoList" class="nko-list">                <!-- сюда JS рисует карточки НКО -->            </div>        </aside>        <!-- ПРАВАЯ КОЛОНКА: карта -->        <div class="map-container-wrapper">            <div id="mapContainer"></div>        </div>    </div></section><section id="events" class="events-section" style="display: none;">    <div class="events-header">        <h2>Ближайшие мероприятия в <span id="eventsCityTitle">Глазове</span></h2>        <div class="events-chips-row">            <button class="chip chip-orange" data-ev-category="Люди с ОВЗ">Люди с ОВЗ</button>            <button class="chip chip-pink" data-ev-category="Спорт и здоровье">Спорт и здоровье</button>            <button class="chip chip-green" data-ev-category="Экология и природа">Экология и природа</button>            <button class="chip chip-blue" data-ev-category="Спорт">Спорт</button>            <button class="chip chip-violet" data-ev-category="Старшее поколение">Старшее поколение</button>            <button class="chip chip-teal" data-ev-category="Культура">Культура</button>            <button class="chip chip-darkgreen" data-ev-category="Социальная поддержка">Социальная поддержка</button>        </div>    </div>    <div class="events-cards" id="eventsList">        <!-- сюда JS нарисует карточки мероприятий -->    </div></section><!-- ========================= ABOUT SECTION ========================= --><section id="about" class="about-section">    <h2>О проекте «Добрый Маршрут»</h2>    <p>        «Добрый Маршрут» — платформа, которая помогает пожилым людям и людям с ограниченными возможностями        быстро получить бытовую помощь: купить продукты, сходить в аптеку, оплатить услуги, сопроводить до поликлиники.        А волонтёры находят задания рядом с собой — по пути на учёбу или домой.    </p>    <p>        Проект работает в Ростове-на-Дону. Присоединяйтесь!    </p></section><!-- ========================= FOOTER ========================= --><footer id="contacts" class="footer">    <p>© 2026. Добрый Маршрут | Ростов-на-Дону</p></footer><!-- ========================= MODALS (LOGIN / REGISTER / ADD-NKO) ========================= --><div id="modalContainer"></div><!-- ========================= SCRIPTS ========================= --><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/modal.js"></script><script src="js/map.js"></script><script src="js/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добрый Маршрут</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/map.css">
+
+    <!-- Яндекс.Карты -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2a2f9206-4685-4211-9977-ffcacd513c9f"></script>
+</head>
+
+<body>
+
+<!-- ========================= HEADER ========================= -->
+
+<header class="header">
+    <div class="header-left">
+        <!-- <img src="img/rosatom-logo.svg" class="logo" alt="Росатом"> -->
+
+        <!-- отображение города -->
+        <div id="currentCity" class="city-tag">
+            <img src="img/icons/location.svg">
+            <span id="cityName">Город</span>
+            <a href="#" id="changeCity" class="change-link">изменить</a>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <a href="#map" class="nav-item active">Карта заданий</a>
+        <a href="#about" class="nav-item">О проекте</a>
+        <a href="#contacts" class="nav-item">Контакты</a>
+    </nav>
+
+    <div class="header-right">
+        <!-- кнопка для входа / профиль -->
+        <div id="userPanel">
+            <button
+                id="loginBtn"
+                class="login-btn"
+            >
+                Войти/Зарегестрироваться
+            </button>
+        </div>
+
+        <button
+            class="add-initiative-btn"
+            id="addInitiativeBtn"
+        >
+            Предложить инициативу
+        </button>
+    </div>
+</header>
+
+
+<!-- ========================= HERO SECTION ========================= -->
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>
+             Помогай по пути<br>
+            <span class="accent-orange">Добрый Маршрут</span><br>
+    в Ростове-на-Дону
+        </h1>
+
+        <p class="hero-subtitle">
+            Находи задания рядом с собой: купить продукты, сходить в аптеку, помочь донести сумки
+        </p>
+
+        <a href="#map" class="btn-large">Перейти к карте</a>
+    </div>
+
+    <div class="hero-illustration">
+        <img src="img/hero-map-girl.png"
+             alt="Иллюстрация: девушка выбирает метку на карте">
+    </div>
+</section>
+</section>
+
+
+<!-- ========================= MAP SECTION ========================= -->
+
+<section id="map" class="map-section">
+
+    <div class="map-layout">
+
+        <!-- ЛЕВАЯ КОЛОНКА: список НКО и фильтры -->
+        <aside class="nko-panel">
+
+            <div class="nko-panel-header">
+                Задания в
+                <span class="city-dropdown">
+                    <button id="cityDropdownToggle" type="button" class="nko-city-link">городе</button>
+                    <div id="cityDropdownMenu" class="city-dropdown-menu"></div>
+                </span>
+                <span id="nkoCityTitle"></span>
+            </div>
+
+            <!-- Поиск -->
+            <div class="nko-search-row">
+                <input type="text" id="searchInput" class="nko-search-input"
+                       placeholder="Поиск заданий">
+            </div>
+
+            <!-- Чипы категорий -->
+            <div class="nko-chips-row">
+    <button class="chip chip-orange" data-category="Продукты">🥛 Продукты</button>
+    <button class="chip chip-pink" data-category="Лекарства">💊 Лекарства</button>
+    <button class="chip chip-green" data-category="Сопровождение">🚶 Сопровождение</button>
+    <button class="chip chip-blue" data-category="Уборка">🧹 Уборка</button>
+    <button class="chip chip-violet" data-category="Оплата услуг">💰 Оплата услуг</button>
+    <button class="chip chip-teal" data-category="Срочная помощь">⚠️ Срочная помощь</button>
+</div>
+
+            <!-- Формат помощи, сортировки и т.п. (пока просто визуал) -->
+            <div class="nko-filters-mini">
+                <div class="nko-filter-group">
+                    <span class="filter-title">Формат помощи</span>
+                    <label><input type="checkbox" checked> Очная помощь</label>
+                    <label><input type="checkbox"> Сбор вещей</label>
+                    <label><input type="checkbox"> Показывать только активные наборы</label>
+                </div>
+            </div>
+
+            <!-- Список карточек НКО -->
+            <div id="nkoList" class="nko-list">
+                <!-- сюда JS рисует карточки НКО -->
+            </div>
+
+        </aside>
+
+        <!-- ПРАВАЯ КОЛОНКА: карта -->
+        <div class="map-container-wrapper">
+            <div id="mapContainer"></div>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="events" class="events-section" style="display: none;">
+    <div class="events-header">
+        <h2>Ближайшие мероприятия в <span id="eventsCityTitle">Глазове</span></h2>
+        <div class="events-chips-row">
+            <button class="chip chip-orange" data-ev-category="Люди с ОВЗ">Люди с ОВЗ</button>
+            <button class="chip chip-pink" data-ev-category="Спорт и здоровье">Спорт и здоровье</button>
+            <button class="chip chip-green" data-ev-category="Экология и природа">Экология и природа</button>
+            <button class="chip chip-blue" data-ev-category="Спорт">Спорт</button>
+            <button class="chip chip-violet" data-ev-category="Старшее поколение">Старшее поколение</button>
+            <button class="chip chip-teal" data-ev-category="Культура">Культура</button>
+            <button class="chip chip-darkgreen" data-ev-category="Социальная поддержка">Социальная поддержка</button>
+        </div>
+    </div>
+
+    <div class="events-cards" id="eventsList">
+        <!-- сюда JS нарисует карточки мероприятий -->
+    </div>
+</section>
+
+<!-- ========================= ABOUT SECTION ========================= -->
+
+<section id="about" class="about-section">
+    <h2>О проекте «Добрый Маршрут»</h2>
+
+    <p>
+        «Добрый Маршрут» — платформа, которая помогает пожилым людям и людям с ограниченными возможностями
+        быстро получить бытовую помощь: купить продукты, сходить в аптеку, оплатить услуги, сопроводить до поликлиники.
+        А волонтёры находят задания рядом с собой — по пути на учёбу или домой.
+    </p>
+    <p>
+        Проект работает в Ростове-на-Дону. Присоединяйтесь!
+    </p>
+</section>
+
+
+<!-- ========================= FOOTER ========================= -->
+
+<footer id="contacts" class="footer">
+    <p>© 2026. Добрый Маршрут | Ростов-на-Дону</p>
+</footer>
+
+
+<!-- ========================= MODALS (LOGIN / REGISTER / ADD-NKO) ========================= -->
+
+<div id="modalContainer"></div>
+
+
+
+<!-- ========================= МОДАЛЬНОЕ ОКНО ВХОДА/РЕГИСТРАЦИИ ========================= -->
+
+<div id="authModal" class="auth-modal" style="display: none;">
+    <div class="auth-modal-content">
+        <span class="auth-modal-close" id="closeAuthModal">&times;</span>
+        
+        <!-- Шаг 1: Выбор роли -->
+        <div id="roleSelection" class="auth-role-selection">
+            <h3>Выберите тип аккаунта</h3>
+            <div class="auth-role-buttons">
+                <button id="roleVolunteer" class="auth-role-btn">🤝 Волонтёр</button>
+                <button id="roleOrganization" class="auth-role-btn">🏢 Организация</button>
+            </div>
+        </div>
+
+        <!-- Шаг 2: Форма волонтёра (скрыта по умолчанию) -->
+        <div id="volunteerForm" class="auth-form" style="display: none;">
+            <h3>Регистрация волонтёра</h3>
+            <form id="volunteerRegisterForm">
+                <input type="text" id="volunteerName" placeholder="ФИО" required>
+                <input type="date" id="volunteerBirthdate" placeholder="Дата рождения" required>
+                <input type="tel" id="volunteerPhone" placeholder="Телефон" required>
+                <input type="email" id="volunteerEmail" placeholder="Email" required>
+                <input type="password" id="volunteerPassword" placeholder="Пароль" required>
+                <button type="submit" class="auth-submit-btn">Зарегистрироваться</button>
+                <button type="button" id="gosuslugiBtn" class="auth-gosuslugi-btn">Войти через Госуслуги</button>
+            </form>
+            <p class="auth-switch">Уже есть аккаунт? <a href="#" id="switchToLogin">Войти</a></p>
+        </div>
+
+        <!-- Шаг 3: Форма входа (для всех) -->
+        <div id="loginForm" class="auth-form" style="display: none;">
+            <h3>Вход</h3>
+            <form id="loginFormSubmit">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Пароль" required>
+                <button type="submit" class="auth-submit-btn">Войти</button>
+            </form>
+            <p class="auth-switch">Нет аккаунта? <a href="#" id="switchToRegister">Зарегистрироваться</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Элементы модального окна
+    const authModal = document.getElementById('authModal');
+    const loginBtn = document.getElementById('loginBtn');
+    const closeAuthModal = document.getElementById('closeAuthModal');
+    const roleSelection = document.getElementById('roleSelection');
+    const volunteerForm = document.getElementById('volunteerForm');
+    const loginForm = document.getElementById('loginForm');
+    const roleVolunteerBtn = document.getElementById('roleVolunteerBtn');
+    const roleOrganizationBtn = document.getElementById('roleOrganizationBtn');
+    const switchToLoginFromReg = document.getElementById('switchToLogin');
+const switchToRegFromLogin = document.getElementById('switchToRegister');
+
+    // Открыть окно при клике на кнопку "Войти / Зарегистрироваться"
+    if (loginBtn) {
+        loginBtn.addEventListener('click', () => {
+            authModal.style.display = 'flex';
+            roleSelection.style.display = 'block';
+            volunteerForm.style.display = 'none';
+            loginForm.style.display = 'none';
+        });
+    }
+
+    // Закрыть окно
+    if (closeAuthModal) {
+        closeAuthModal.addEventListener('click', () => {
+            authModal.style.display = 'none';
+        });
+    }
+
+    // Закрыть по клику на фон
+    window.addEventListener('click', (e) => {
+        if (e.target === authModal) {
+            authModal.style.display = 'none';
+        }
+    });
+
+    // Выбор роли Волонтёр
+    if (roleVolunteerBtn) {
+        roleVolunteerBtn.addEventListener('click', () => {
+            roleSelection.style.display = 'none';
+            volunteerForm.style.display = 'block';
+        });
+    }
+
+    // Выбор роли Организация (пока заглушка)
+    if (roleOrganizationBtn) {
+        roleOrganizationBtn.addEventListener('click', () => {
+            alert('Регистрация для организаций скоро появится');
+            roleSelection.style.display = 'none';
+            // здесь можно будет добавить форму для организаций
+        });
+    }
+
+    // Переключение на форму входа из регистрации
+    if (switchToLoginFromReg) {
+        switchToLoginFromReg.addEventListener('click', (e) => {
+            e.preventDefault();
+            volunteerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        });
+    }
+
+    // Переключение на форму регистрации из входа
+    if (switchToRegFromLogin) {
+        switchToRegFromLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginForm.style.display = 'none';
+            roleSelection.style.display = 'block';
+            volunteerForm.style.display = 'none';
+        });
+    }
+
+    // Отправка формы регистрации волонтёра
+    const volunteerRegisterForm = document.getElementById('volunteerRegisterForm');
+    if (volunteerRegisterForm) {
+        volunteerRegisterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('volunteerName').value;
+            alert(`Спасибо за регистрацию, ${name}! Мы свяжемся с вами.`);
+            authModal.style.display = 'none';
+        });
+    }
+
+    // Отправка формы входа
+    const loginFormSubmit = document.getElementById('loginFormSubmit');
+    if (loginFormSubmit) {
+        loginFormSubmit.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Вход выполнен! Добро пожаловать.');
+            authModal.style.display = 'none';
+        });
+    }
+
+    // Кнопка Госуслуг (заглушка)
+    const gosuslugiBtn = document.getElementById('gosuslugiBtn');
+    if (gosuslugiBtn) {
+        gosuslugiBtn.addEventListener('click', () => {
+            alert('Перенаправление на портал Госуслуг...');
+        });
+    }
+</script>
+
+<!-- ========================= SCRIPTS ========================= -->
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/map.js"></script>
+<script src="js/app.js"></script>
+
+
+
+</body>
+</html>
