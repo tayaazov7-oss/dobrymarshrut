@@ -2966,3 +2966,8 @@ button {
 #roleVolunteerBtn, #roleOrganizationBtn, #submitVolunteerBtn, #submitLoginBtn, #backToRoleBtn, #backToRoleFromLoginBtn {
     background: #A00429 !important;
 }
+#authModal div:first-of-type {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
