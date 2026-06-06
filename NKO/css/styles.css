@@ -2971,3 +2971,14 @@ button {
     flex-direction: column !important;
     align-items: center !important;
 } 
+
+
+
+
+
+
+#roleVolunteerBtn, #roleOrganizationBtn {
+    display: block !important;
+    width: 100% !important;
+    margin: 10px 0 !important;
+}
