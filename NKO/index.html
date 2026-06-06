@@ -194,33 +194,33 @@
 
 <!-- ========================= МОДАЛЬНОЕ ОКНО ========================= -->
 
-<div id="authModal" style="display: none;">
+<div id="authModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 48px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); z-index: 10001; width: 380px; text-align: center;">
     <h3>Выберите тип аккаунта</h3>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-        <button id="roleVolunteerBtn">🤝 Волонтёр</button>
-        <button id="roleOrganizationBtn">🏢 Организация</button>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; margin: 20px 0;">
+        <button id="roleVolunteerBtn" style="background: #A00429; color: white; border: none; border-radius: 60px; padding: 12px 24px; width: 200px; cursor: pointer; font-size: 16px;">🤝 Волонтёр</button>
+        <button id="roleOrganizationBtn" style="background: #A00429; color: white; border: none; border-radius: 60px; padding: 12px 24px; width: 200px; cursor: pointer; font-size: 16px;">🏢 Организация</button>
     </div>
-    <button id="closeAuthModalBtn">Закрыть</button>
+    <button id="closeAuthModalBtn" style="background: #e0e0e0; color: #333; border: none; border-radius: 60px; padding: 10px 20px; width: 120px; cursor: pointer;">Закрыть</button>
 </div>
 
-<div id="volunteerFormModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 10001; width: 320px;">
+<div id="volunteerFormModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 48px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); z-index: 10001; width: 380px; text-align: center;">
     <h3>Регистрация волонтёра</h3>
-    <input type="text" id="volName" placeholder="ФИО" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
-    <input type="date" id="volBirthdate" placeholder="Дата рождения" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
-    <input type="tel" id="volPhone" placeholder="Телефон" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
-    <input type="email" id="volEmail" placeholder="Email" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
-    <input type="password" id="volPassword" placeholder="Пароль" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
-    <button id="submitVolunteerBtn" style="width: 100%; padding: 10px; background: #e67e22; color: white; border: none;">Зарегистрироваться</button>
-    <button id="gosuslugiBtn" style="width: 100%; margin-top: 10px; padding: 10px; background: #1e3a8a; color: white; border: none;">Войти через Госуслуги</button>
-    <button id="backToRoleBtn" style="margin-top: 10px; padding: 5px 10px;">Назад</button>
+    <input type="text" id="volName" placeholder="ФИО" style="width: 100%; margin: 10px 0; padding: 12px; border-radius: 60px; border: 1px solid #ddd;">
+    <input type="date" id="volBirthdate" placeholder="Дата рождения" style="width: 100%; margin: 10px 0; padding: 12px; border-radius: 60px; border: 1px solid #ddd;">
+    <input type="tel" id="volPhone" placeholder="Телефон" style="width: 100%; margin: 10px 0; padding: 12px; border-radius: 60px; border: 1px solid #ddd;">
+    <input type="email" id="volEmail" placeholder="Email" style="width: 100%; margin: 10px 0; padding: 12px; border-radius: 60px; border: 1px solid #ddd;">
+    <input type="password" id="volPassword" placeholder="Пароль" style="width: 100%; margin: 10px 0; padding: 12px; border-radius: 60px; border: 1px solid #ddd;">
+    <button id="submitVolunteerBtn" style="width: 100%; padding: 12px; background: #A00429; color: white; border: none; border-radius: 60px; margin-top: 10px; cursor: pointer;">Зарегистрироваться</button>
+    <button id="gosuslugiBtn" style="width: 100%; margin-top: 10px; padding: 12px; background: #1e3a8a; color: white; border: none; border-radius: 60px; cursor: pointer;">Войти через Госуслуги</button>
+    <button id="backToRoleBtn" style="margin-top: 15px; padding: 8px 20px; background: transparent; color: #A00429; border: none; border-radius: 60px; cursor: pointer; text-decoration: underline;">Назад</button>
 </div>
 
-<div id="loginFormModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 10001; width: 320px;">
+<div id="loginFormModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 48px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); z-index: 10001; width: 380px; text-align: center;">
     <h3>Вход</h3>
-    <input type="email" id="loginEmail" placeholder="Email" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
-    <input type="password" id="loginPassword" placeholder="Пароль" style="width: 100%; margin: 10px 0; padding: 8px;"><br>
-    <button id="submitLoginBtn" style="width: 100%; padding: 10px; background: #e67e22; color: white; border: none;">Войти</button>
-    <button id="backToRoleFromLoginBtn" style="margin-top: 10px; padding: 5px 10px;">Назад</button>
+    <input type="email" id="loginEmail" placeholder="Email" style="width: 100%; margin: 10px 0; padding: 12px; border-radius: 60px; border: 1px solid #ddd;">
+    <input type="password" id="loginPassword" placeholder="Пароль" style="width: 100%; margin: 10px 0; padding: 12px; border-radius: 60px; border: 1px solid #ddd;">
+    <button id="submitLoginBtn" style="width: 100%; padding: 12px; background: #A00429; color: white; border: none; border-radius: 60px; margin-top: 10px; cursor: pointer;">Войти</button>
+    <button id="backToRoleFromLoginBtn" style="margin-top: 15px; padding: 8px 20px; background: transparent; color: #A00429; border: none; border-radius: 60px; cursor: pointer; text-decoration: underline;">Назад</button>
 </div>
 
 <script>
