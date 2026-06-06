@@ -5,7 +5,7 @@
     --blue-main: #1f63d8;
     --blue-light: #4fa7ff;
     --blue-bg: #f5f7fc;
-    --orange: #ff7a2f;
+    --red: #A00429;
     --text-main: #13213a;
     --text-muted: #4c5b7c;
     --white: #ffffff;
@@ -937,7 +937,7 @@ button {
 }
 
 #roleVolunteerBtn, #roleOrganizationBtn {
-    background: linear-gradient(135deg, #e67e22, #f39c12);
+    background: var(--red);
     color: white;
     width: 160px;
 }
@@ -948,7 +948,7 @@ button {
 }
 
 #submitVolunteerBtn, #submitLoginBtn {
-    background: linear-gradient(135deg, #e67e22, #f39c12);
+    background: var(--red);
     color: white;
     width: 100%;
 }
@@ -962,7 +962,7 @@ button {
 
 #backToRoleBtn, #backToRoleFromLoginBtn {
     background: transparent;
-    color: #e67e22;
+    color: var(--red);
     text-decoration: underline;
     margin-top: 15px;
 }
@@ -976,7 +976,7 @@ button {
 }
 
 #authModal input:focus, #volunteerFormModal input:focus, #loginFormModal input:focus {
-    border-color: #e67e22;
+    border-color: var(--red);
     outline: none;
 }
 /* ================== БАЗА ================== */
@@ -1918,7 +1918,7 @@ button {
 }
 
 #roleVolunteerBtn, #roleOrganizationBtn {
-    background: linear-gradient(135deg, #e67e22, #f39c12);
+    background: var(--red);
     color: white;
     width: 160px;
 }
@@ -1929,7 +1929,7 @@ button {
 }
 
 #submitVolunteerBtn, #submitLoginBtn {
-    background: linear-gradient(135deg, #e67e22, #f39c12);
+    background: var(--red);
     color: white;
     width: 100%;
 }
@@ -1943,7 +1943,7 @@ button {
 
 #backToRoleBtn, #backToRoleFromLoginBtn {
     background: transparent;
-    color: #e67e22;
+    color: var(--red);
     text-decoration: underline;
     margin-top: 15px;
 }
@@ -1957,7 +1957,7 @@ button {
 }
 
 #authModal input:focus, #volunteerFormModal input:focus, #loginFormModal input:focus {
-    border-color: #e67e22;
+    border-color: var(--red);
     outline: none;
 }
 /* ================== БАЗА ================== */
@@ -2897,7 +2897,7 @@ button {
 }
 
 #roleVolunteerBtn, #roleOrganizationBtn {
-    background: linear-gradient(135deg, #e67e22, #f39c12);
+    background: var(--red);
     color: white;
     width: 160px;
 }
@@ -2908,7 +2908,7 @@ button {
 }
 
 #submitVolunteerBtn, #submitLoginBtn {
-    background: linear-gradient(135deg, #e67e22, #f39c12);
+    background: var(--red);
     color: white;
     width: 100%;
 }
@@ -2922,7 +2922,7 @@ button {
 
 #backToRoleBtn, #backToRoleFromLoginBtn {
     background: transparent;
-    color: #e67e22;
+    color: var(--red);
     text-decoration: underline;
     margin-top: 15px;
 }
@@ -2936,7 +2936,7 @@ button {
 }
 
 #authModal input:focus, #volunteerFormModal input:focus, #loginFormModal input:focus {
-    border-color: #e67e22;
+    border-color: var(--red);
     outline: none;
 }
 /* ================== АДАПТАЦИЯ ПОД ТЕЛЕФОН ================== */
@@ -2990,7 +2990,7 @@ button {
 }
 
 #authModal button, #volunteerFormModal button, #loginFormModal button {
-    background: #e67e22;
+    background: var(--red);
     color: white;
     border: none;
     border-radius: 60px;
@@ -3006,7 +3006,7 @@ button {
 }
 
 #submitVolunteerBtn, #submitLoginBtn {
-    background: #e67e22;
+    background: var(--red);
     width: 100%;
 }
 
@@ -3017,7 +3017,7 @@ button {
 
 #backToRoleBtn, #backToRoleFromLoginBtn {
     background: transparent;
-    color: #e67e22;
+    color: var(--red);
     text-decoration: underline;
 }
 
