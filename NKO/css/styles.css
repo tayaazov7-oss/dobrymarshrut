@@ -2982,3 +2982,12 @@ button {
     width: 100% !important;
     margin: 10px 0 !important;
 }
+
+
+
+
+#authModal {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
