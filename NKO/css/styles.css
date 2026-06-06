@@ -1257,3 +1257,85 @@ button {
     outline: none;
     box-shadow: 0 0 0 3px rgba(230,126,34,0.1);
 }
+/* ================== ВЫРАВНИВАНИЕ ОКОН ================== */
+
+#volunteerFormModal, #loginFormModal {
+    border-radius: 48px !important;
+    background: white;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif !important;
+    padding: 30px !important;
+    width: 380px !important;
+}
+
+#volunteerFormModal h3, #loginFormModal h3 {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 24px;
+    color: #13213a;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+#volunteerFormModal button, #loginFormModal button {
+    border-radius: 60px !important;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#volunteerFormModal button:hover, #loginFormModal button:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+}
+
+#submitVolunteerBtn, #submitLoginBtn {
+    background: linear-gradient(135deg, #e67e22, #f39c12) !important;
+    color: white;
+    border-radius: 60px !important;
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+    font-size: 18px;
+}
+
+#gosuslugiBtn {
+    background: #1e3a8a !important;
+    color: white;
+    border-radius: 60px !important;
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    font-size: 15px;
+}
+
+#backToRoleBtn, #backToRoleFromLoginBtn {
+    background: transparent !important;
+    color: #e67e22 !important;
+    border-radius: 60px !important;
+    margin-top: 15px;
+    padding: 8px 20px;
+    text-decoration: underline;
+}
+
+#volunteerFormModal input, #loginFormModal input {
+    border-radius: 60px !important;
+    border: 1.5px solid #e0e6ed;
+    background: #fafbfc;
+    padding: 12px 18px;
+    font-family: inherit;
+    font-size: 15px;
+    width: 100%;
+    margin: 8px 0;
+    transition: all 0.2s;
+}
+
+#volunteerFormModal input:focus, #loginFormModal input:focus {
+    border-color: #e67e22;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(230,126,34,0.1);
+}
