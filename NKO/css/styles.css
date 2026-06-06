@@ -2982,3 +2982,11 @@ button {
     width: 100% !important;
     display: block !important;
 }
+
+#backToRoleBtn {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 16px !important;
+    padding: 10px !important;
+}
