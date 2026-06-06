@@ -908,15 +908,15 @@ button {
 
 /* ================== AUTH MODALS ================== */
 
-/* ================== ОКНА ВХОДА И РЕГИСТРАЦИИ (КРАСИВЫЕ ОВАЛЬНЫЕ) ================== */
+/* ================== AUTH MODALS ================== */
 
 #authModal, #volunteerFormModal, #loginFormModal {
-    border-radius: 48px !important;
+    border-radius: 48px;
     background: white;
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif !important;
-    padding: 30px !important;
-    width: 380px !important;
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    padding: 30px;
+    width: 380px;
     text-align: center;
 }
 
@@ -928,7 +928,7 @@ button {
 }
 
 #authModal button, #volunteerFormModal button, #loginFormModal button {
-    border-radius: 40px !important;
+    border-radius: 60px;
     border: none;
     padding: 12px 24px;
     font-size: 16px;
@@ -937,7 +937,7 @@ button {
 }
 
 #roleVolunteerBtn, #roleOrganizationBtn {
-    background: #e67e22;
+    background: linear-gradient(135deg, #e67e22, #f39c12);
     color: white;
     width: 160px;
 }
@@ -948,7 +948,7 @@ button {
 }
 
 #submitVolunteerBtn, #submitLoginBtn {
-    background: #e67e22;
+    background: linear-gradient(135deg, #e67e22, #f39c12);
     color: white;
     width: 100%;
 }
@@ -968,7 +968,7 @@ button {
 }
 
 #authModal input, #volunteerFormModal input, #loginFormModal input {
-    border-radius: 40px !important;
+    border-radius: 60px;
     border: 1px solid #ddd;
     padding: 12px 15px;
     width: 100%;
