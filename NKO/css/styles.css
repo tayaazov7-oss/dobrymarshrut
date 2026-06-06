@@ -2963,3 +2963,6 @@ button {
         padding: 20px;
     }
 }
+#roleVolunteerBtn, #roleOrganizationBtn, #submitVolunteerBtn, #submitLoginBtn, #backToRoleBtn, #backToRoleFromLoginBtn {
+    background: #A00429 !important;
+}
