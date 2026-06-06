@@ -908,434 +908,74 @@ button {
 
 /* ================== AUTH MODALS ================== */
 
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(4, 21, 54, 0.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.modal-dialog.auth-dialog {
-    background: linear-gradient(135deg, #2b66d8, #12316f);
-    padding: 40px 0;
-    border-radius: 32px;
-    max-width: 640px;
-    width: 100%;
-    box-shadow: 0 30px 80px rgba(4, 20, 60, 0.75);
-    position: relative;
-}
-
-.modal-close {
-    position: absolute;
-    top: 18px;
-    right: 24px;
-    border: none;
-    background: transparent;
-    font-size: 28px;
-    color: #ffffff;
-    cursor: pointer;
-}
-
-.auth-card {
-    max-width: 460px;
-    margin: 0 auto;
-    background: #7db2f0;
-    border-radius: 28px;
-    padding: 26px 36px 30px;
-    box-shadow: 0 16px 40px rgba(4, 21, 54, 0.45);
-}
-
-.auth-title {
-    text-align: center;
-    font-size: 26px;
-    margin-bottom: 18px;
-    color: #ffffff;
-}
-
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.auth-label {
-    font-size: 14px;
-    color: #1f2440;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.auth-input {
-    border-radius: 999px;
-    border: none;
-    padding: 8px 16px;
-    font-size: 14px;
-    outline: none;
-    background: #ffffff;
-}
-
-.auth-input:focus {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.7);
-}
-
-.auth-primary-btn {
-    margin-top: 8px;
-    border-radius: 999px;
-    border: none;
-    padding: 10px 16px;
-    font-size: 15px;
-    font-weight: 600;
-    background: #f02d7a;
-    color: #ffffff;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(176, 10, 84, 0.45);
-}
-
-.auth-primary-btn:hover {
-    transform: translateY(-1px);
-}
-
-.auth-row {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 12px;
-}
-
-.auth-forgot {
-    margin-top: 4px;
-}
-
-.link-btn {
-    border: none;
-    background: transparent;
-    padding: 0;
-    color: #ffffff;
-    text-decoration: underline;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.auth-divider {
-    margin: 10px 0 6px;
-    text-align: center;
-    font-size: 12px;
-    color: #1f2440;
-}
-
-.social-row {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 8px;
-}
-
-.social-btn {
-    border-radius: 50%;
-    width: 34px;
-    height: 34px;
-    border: none;
-    background: #ffffff;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.social-btn img {
-    width: 22px;
-    height: 22px;
-}
-
-.auth-alt {
-    text-align: center;
-    font-size: 12px;
-    margin-top: 6px;
-}
-
-/* регистрация */
-
-.auth-toggle {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-
-.auth-toggle-btn {
-    border-radius: 999px;
-    border: none;
-    padding: 4px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    background: #b4cef5;
-    color: #1f2440;
-}
-
-.auth-toggle-btn.active {
-    background: #ffffff;
-    box-shadow: 0 0 0 2px rgba(240, 45, 122, 0.65);
-}
-
-.auth-subtitle {
-    text-align: center;
-    font-size: 13px;
-    margin-bottom: 6px;
-    color: #1f2440;
-}
-
-.auth-help {
-    font-size: 11px;
-    color: #1f2440;
-    opacity: 0.8;
-}
-
-.dob-row {
-    display: flex;
-    gap: 6px;
-}
-
-.dob-input {
-    flex: 1;
-}
-
-.check-label {
-    font-size: 12px;
-    color: #1f2440;
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
-}
-
-.inline-link {
-    color: #f02d7a;
-    text-decoration: underline;
-}
-
-.reg-section.hidden {
-    display: none;
-}
-
-.user-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-    font-size: 13px;
-}
-
-.user-avatar {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #ffffff;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.user-email {
-    max-width: 140px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-    .modal-dialog.auth-dialog {
-        margin: 0 12px;
-        padding: 26px 0;
-    }
-
-    .auth-card {
-        padding: 20px;
-    }
-
-
-/* ================== СТИЛИ ДЛЯ МОДАЛЬНЫХ ОКОН (ДОБРЫЙ МАРШРУТ) ================== */
+/* ================== ОКНА ВХОДА И РЕГИСТРАЦИИ (КРАСИВЫЕ ОВАЛЬНЫЕ) ================== */
 
 #authModal, #volunteerFormModal, #loginFormModal {
     border-radius: 48px !important;
     background: white;
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif !important;
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif !important;
     padding: 30px !important;
     width: 380px !important;
+    text-align: center;
 }
 
 #authModal h3, #volunteerFormModal h3, #loginFormModal h3 {
-    font-family: inherit;
     font-weight: 600;
     font-size: 24px;
     color: #13213a;
     margin-bottom: 25px;
-    text-align: center;
 }
 
 #authModal button, #volunteerFormModal button, #loginFormModal button {
-    border-radius: 60px !important;
+    border-radius: 40px !important;
     border: none;
-    padding: 12px 28px;
+    padding: 12px 24px;
     font-size: 16px;
-    font-family: inherit;
-    font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-#authModal button:hover, #volunteerFormModal button:hover, #loginFormModal button:hover {
-    transform: translateY(-2px);
-    filter: brightness(0.95);
+    margin: 8px;
 }
 
 #roleVolunteerBtn, #roleOrganizationBtn {
-    background: linear-gradient(135deg, #e67e22, #f39c12);
+    background: #e67e22;
     color: white;
-    width: 170px;
-    border-radius: 60px !important;
-    margin: 8px;
-    box-shadow: 0 4px 10px rgba(230,126,34,0.3);
+    width: 160px;
 }
 
 #closeAuthModalBtn {
-    background: #eef2f5;
-    color: #5a6e8a;
-    border-radius: 60px !important;
-    margin-top: 15px;
-    padding: 10px 25px;
+    background: #e0e0e0;
+    color: #333;
 }
 
 #submitVolunteerBtn, #submitLoginBtn {
-    background: linear-gradient(135deg, #e67e22, #f39c12);
+    background: #e67e22;
     color: white;
-    border-radius: 60px !important;
     width: 100%;
-    margin-top: 15px;
-    padding: 14px;
-    font-size: 18px;
 }
 
 #gosuslugiBtn {
     background: #1e3a8a;
     color: white;
-    border-radius: 60px !important;
     width: 100%;
-    margin-top: 12px;
-    padding: 12px;
-    font-size: 15px;
+    margin-top: 10px;
 }
 
 #backToRoleBtn, #backToRoleFromLoginBtn {
     background: transparent;
     color: #e67e22;
-    border-radius: 60px !important;
-    margin-top: 15px;
-    padding: 8px 20px;
     text-decoration: underline;
+    margin-top: 15px;
 }
 
 #authModal input, #volunteerFormModal input, #loginFormModal input {
-    border-radius: 60px !important;
-    border: 1.5px solid #e0e6ed;
-    background: #fafbfc;
-    padding: 12px 18px;
-    font-family: inherit;
-    font-size: 15px;
+    border-radius: 40px !important;
+    border: 1px solid #ddd;
+    padding: 12px 15px;
     width: 100%;
     margin: 8px 0;
-    transition: all 0.2s;
 }
 
 #authModal input:focus, #volunteerFormModal input:focus, #loginFormModal input:focus {
     border-color: #e67e22;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(230,126,34,0.1);
-}
-/* ================== ВЫРАВНИВАНИЕ ОКОН ================== */
-
-#volunteerFormModal, #loginFormModal {
-    border-radius: 48px !important;
-    background: white;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif !important;
-    padding: 30px !important;
-    width: 380px !important;
-}
-
-#volunteerFormModal h3, #loginFormModal h3 {
-    font-family: inherit;
-    font-weight: 600;
-    font-size: 24px;
-    color: #13213a;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-#volunteerFormModal button, #loginFormModal button {
-    border-radius: 60px !important;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-family: inherit;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-#volunteerFormModal button:hover, #loginFormModal button:hover {
-    transform: translateY(-2px);
-    filter: brightness(0.95);
-}
-
-#submitVolunteerBtn, #submitLoginBtn {
-    background: linear-gradient(135deg, #e67e22, #f39c12) !important;
-    color: white;
-    border-radius: 60px !important;
-    width: 100%;
-    margin-top: 15px;
-    padding: 14px;
-    font-size: 18px;
-}
-
-#gosuslugiBtn {
-    background: #1e3a8a !important;
-    color: white;
-    border-radius: 60px !important;
-    width: 100%;
-    margin-top: 12px;
-    padding: 12px;
-    font-size: 15px;
-}
-
-#backToRoleBtn, #backToRoleFromLoginBtn {
-    background: transparent !important;
-    color: #e67e22 !important;
-    border-radius: 60px !important;
-    margin-top: 15px;
-    padding: 8px 20px;
-    text-decoration: underline;
-}
-
-#volunteerFormModal input, #loginFormModal input {
-    border-radius: 60px !important;
-    border: 1.5px solid #e0e6ed;
-    background: #fafbfc;
-    padding: 12px 18px;
-    font-family: inherit;
-    font-size: 15px;
-    width: 100%;
-    margin: 8px 0;
-    transition: all 0.2s;
-}
-
-#volunteerFormModal input:focus, #loginFormModal input:focus {
-    border-color: #e67e22;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(230,126,34,0.1);
 }
