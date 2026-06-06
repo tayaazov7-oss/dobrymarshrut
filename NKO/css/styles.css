@@ -2971,3 +2971,14 @@ button {
     flex-direction: column !important;
     align-items: center !important;
 }
+#authModal button {
+    display: block !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+#roleVolunteerBtn, #roleOrganizationBtn {
+    width: 100% !important;
+    display: block !important;
+}
