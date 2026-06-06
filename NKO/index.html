@@ -258,5 +258,40 @@
 <script src="js/map.js"></script>
 <script src="js/app.js"></script>
 
+
+
+
+<script>
+    // Простое открытие окна
+    document.getElementById('loginBtn').onclick = function() {
+        document.getElementById('authModal').style.display = 'block';
+    };
+    
+    // Простое закрытие окна
+    document.getElementById('closeAuthModalBtn').onclick = function() {
+        document.getElementById('authModal').style.display = 'none';
+    };
+    
+    // Переход к регистрации волонтёра
+    document.getElementById('roleVolunteerBtn').onclick = function() {
+        document.getElementById('authModal').style.display = 'none';
+        document.getElementById('volunteerFormModal').style.display = 'block';
+    };
+    
+    // Возврат назад из регистрации
+    document.getElementById('backToRoleBtn').onclick = function() {
+        document.getElementById('volunteerFormModal').style.display = 'none';
+        document.getElementById('authModal').style.display = 'block';
+    };
+</script>
+
+
+
+
+
+
+
+
+    
 </body>
 </html>
