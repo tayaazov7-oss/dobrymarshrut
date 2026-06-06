@@ -248,62 +248,91 @@
     }
 
     // Закрыть главное окно
-    document.getElementById('closeAuthModalBtn').onclick = () => {
-        authModal.style.display = 'none';
-    };
+    const closeBtn = document.getElementById('closeAuthModalBtn');
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+            authModal.style.display = 'none';
+        };
+    }
 
     // Выбор Волонтёра
-    document.getElementById('roleVolunteerBtn').onclick = () => {
-        authModal.style.display = 'none';
-        volunteerFormModal.style.display = 'block';
-    };
+    const volunteerBtn = document.getElementById('roleVolunteerBtn');
+    if (volunteerBtn) {
+        volunteerBtn.onclick = () => {
+            authModal.style.display = 'none';
+            volunteerFormModal.style.display = 'block';
+        };
+    }
 
     // Выбор Организации (заглушка)
-    document.getElementById('roleOrganizationBtn').onclick = () => {
-        alert('Регистрация для организаций скоро появится');
-        authModal.style.display = 'none';
-    };
+    const orgBtn = document.getElementById('roleOrganizationBtn');
+    if (orgBtn) {
+        orgBtn.onclick = () => {
+            alert('Регистрация для организаций скоро появится');
+            authModal.style.display = 'none';
+        };
+    }
 
     // Назад из формы волонтёра
-    document.getElementById('backToRoleBtn').onclick = () => {
-        volunteerFormModal.style.display = 'none';
-        authModal.style.display = 'block';
-    };
+    const backBtn = document.getElementById('backToRoleBtn');
+    if (backBtn) {
+        backBtn.onclick = () => {
+            volunteerFormModal.style.display = 'none';
+            authModal.style.display = 'block';
+        };
+    }
 
     // Назад из формы входа
-    document.getElementById('backToRoleFromLoginBtn').onclick = () => {
-        loginFormModal.style.display = 'none';
-        authModal.style.display = 'block';
-    };
+    const backFromLoginBtn = document.getElementById('backToRoleFromLoginBtn');
+    if (backFromLoginBtn) {
+        backFromLoginBtn.onclick = () => {
+            loginFormModal.style.display = 'none';
+            authModal.style.display = 'block';
+        };
+    }
 
-    // Отправка регистрации волонтёра
-    document.getElementById('submitVolunteerBtn').onclick = () => {
-        const name = document.getElementById('volName').value;
-        alert(`Спасибо за регистрацию, ${name}! Мы свяжемся с вами.`);
-        volunteerFormModal.style.display = 'none';
-    };
+    // Отправка регистрации
+    const submitBtn = document.getElementById('submitVolunteerBtn');
+    if (submitBtn) {
+        submitBtn.onclick = () => {
+            const name = document.getElementById('volName').value;
+            if (!name) {
+                alert('Пожалуйста, введите ваше имя');
+                return;
+            }
+            alert(`Спасибо за регистрацию, ${name}! Мы свяжемся с вами.`);
+            volunteerFormModal.style.display = 'none';
+        };
+    }
 
     // Отправка входа
-    document.getElementById('submitLoginBtn').onclick = () => {
-        alert('Вход выполнен! Добро пожаловать.');
-        loginFormModal.style.display = 'none';
-    };
+    const loginSubmitBtn = document.getElementById('submitLoginBtn');
+    if (loginSubmitBtn) {
+        loginSubmitBtn.onclick = () => {
+            const email = document.getElementById('loginEmail').value;
+            if (!email) {
+                alert('Пожалуйста, введите email');
+                return;
+            }
+            alert('Вход выполнен! Добро пожаловать.');
+            loginFormModal.style.display = 'none';
+        };
+    }
 
     // Госуслуги
-    document.getElementById('gosuslugiBtn').onclick = () => {
-        alert('Перенаправление на портал Госуслуг...');
-    };
+    const gosuslugi = document.getElementById('gosuslugiBtn');
+    if (gosuslugi) {
+        gosuslugi.onclick = () => {
+            alert('Перенаправление на портал Госуслуг...');
+        };
+    }
 </script>
 
 <!-- ========================= SCRIPTS ========================= -->
 
 <script src="js/api.js"></script>
-<!-- <script src="js/auth.js"></script> -->
-<!-- <script src="js/modal.js"></script> -->
 <script src="js/map.js"></script>
 <script src="js/app.js"></script>
 
-
-    
 </body>
 </html>
