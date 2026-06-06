@@ -294,7 +294,30 @@
 <script src="js/app.js"></script>
 
 
-
+<script>
+    // Полностью переопределяем открытие окна
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginBtn = document.getElementById('loginBtn');
+        const authModal = document.getElementById('authModal');
+        
+        if (loginBtn && authModal) {
+            // Убираем любые старые обработчики
+            loginBtn.replaceWith(loginBtn.cloneNode(true));
+            const newLoginBtn = document.getElementById('loginBtn');
+            
+            // Добавляем новый обработчик
+            newLoginBtn.onclick = function(e) {
+                e.preventDefault();
+                authModal.style.display = 'block';
+            };
+        }
+        
+        // Гарантированно скрываем окно при загрузке
+        if (authModal) {
+            authModal.style.display = 'none';
+        }
+    });
+</script>
     
 </body>
 </html>
