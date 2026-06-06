@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -12,16 +12,12 @@
     <!-- Яндекс.Карты -->
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2a2f9206-4685-4211-9977-ffcacd513c9f"></script>
 </head>
-
 <body>
 
 <!-- ========================= HEADER ========================= -->
 
 <header class="header">
     <div class="header-left">
-        <!-- <img src="img/rosatom-logo.svg" class="logo" alt="Росатом"> -->
-
-        <!-- отображение города -->
         <div id="currentCity" class="city-tag">
             <img src="img/icons/location.svg">
             <span id="cityName">Город</span>
@@ -36,60 +32,31 @@
     </nav>
 
     <div class="header-right">
-        <!-- кнопка для входа / профиль -->
         <div id="userPanel">
-            <button
-                id="loginBtn"
-                class="login-btn"
-            >
-                Войти/Зарегестрироваться
-            </button>
+            <button id="loginBtn" class="login-btn">Войти/Зарегистрироваться</button>
         </div>
-
-        <button
-            class="add-initiative-btn"
-            id="addInitiativeBtn"
-        >
-            Предложить инициативу
-        </button>
+        <button class="add-initiative-btn" id="addInitiativeBtn">Предложить инициативу</button>
     </div>
 </header>
-
 
 <!-- ========================= HERO SECTION ========================= -->
 
 <section class="hero">
     <div class="hero-content">
-        <h1>
-             Помогай по пути<br>
-            <span class="accent-orange">Добрый Маршрут</span><br>
-    в Ростове-на-Дону
-        </h1>
-
-        <p class="hero-subtitle">
-            Находи задания рядом с собой: купить продукты, сходить в аптеку, помочь донести сумки
-        </p>
-
+        <h1>Помогай по пути<br><span class="accent-orange">Добрый Маршрут</span><br>в Ростове-на-Дону</h1>
+        <p class="hero-subtitle">Находи задания рядом с собой: купить продукты, сходить в аптеку, помочь донести сумки</p>
         <a href="#map" class="btn-large">Перейти к карте</a>
     </div>
-
     <div class="hero-illustration">
-        <img src="img/hero-map-girl.png"
-             alt="Иллюстрация: девушка выбирает метку на карте">
+        <img src="img/hero-map-girl.png" alt="Иллюстрация: девушка выбирает метку на карте">
     </div>
 </section>
-</section>
-
 
 <!-- ========================= MAP SECTION ========================= -->
 
 <section id="map" class="map-section">
-
     <div class="map-layout">
-
-        <!-- ЛЕВАЯ КОЛОНКА: список НКО и фильтры -->
         <aside class="nko-panel">
-
             <div class="nko-panel-header">
                 Задания в
                 <span class="city-dropdown">
@@ -98,24 +65,17 @@
                 </span>
                 <span id="nkoCityTitle"></span>
             </div>
-
-            <!-- Поиск -->
             <div class="nko-search-row">
-                <input type="text" id="searchInput" class="nko-search-input"
-                       placeholder="Поиск заданий">
+                <input type="text" id="searchInput" class="nko-search-input" placeholder="Поиск заданий">
             </div>
-
-            <!-- Чипы категорий -->
             <div class="nko-chips-row">
-    <button class="chip chip-orange" data-category="Продукты">🥛 Продукты</button>
-    <button class="chip chip-pink" data-category="Лекарства">💊 Лекарства</button>
-    <button class="chip chip-green" data-category="Сопровождение">🚶 Сопровождение</button>
-    <button class="chip chip-blue" data-category="Уборка">🧹 Уборка</button>
-    <button class="chip chip-violet" data-category="Оплата услуг">💰 Оплата услуг</button>
-    <button class="chip chip-teal" data-category="Срочная помощь">⚠️ Срочная помощь</button>
-</div>
-
-            <!-- Формат помощи, сортировки и т.п. (пока просто визуал) -->
+                <button class="chip chip-orange" data-category="Продукты">🥛 Продукты</button>
+                <button class="chip chip-pink" data-category="Лекарства">💊 Лекарства</button>
+                <button class="chip chip-green" data-category="Сопровождение">🚶 Сопровождение</button>
+                <button class="chip chip-blue" data-category="Уборка">🧹 Уборка</button>
+                <button class="chip chip-violet" data-category="Оплата услуг">💰 Оплата услуг</button>
+                <button class="chip chip-teal" data-category="Срочная помощь">⚠️ Срочная помощь</button>
+            </div>
             <div class="nko-filters-mini">
                 <div class="nko-filter-group">
                     <span class="filter-title">Формат помощи</span>
@@ -124,22 +84,13 @@
                     <label><input type="checkbox"> Показывать только активные наборы</label>
                 </div>
             </div>
-
-            <!-- Список карточек НКО -->
-            <div id="nkoList" class="nko-list">
-                <!-- сюда JS рисует карточки НКО -->
-            </div>
-
+            <div id="nkoList" class="nko-list"></div>
         </aside>
-
-        <!-- ПРАВАЯ КОЛОНКА: карта -->
         <div class="map-container-wrapper">
             <div id="mapContainer"></div>
         </div>
-
     </div>
 </section>
-
 
 <section id="events" class="events-section" style="display: none;">
     <div class="events-header">
@@ -154,27 +105,16 @@
             <button class="chip chip-darkgreen" data-ev-category="Социальная поддержка">Социальная поддержка</button>
         </div>
     </div>
-
-    <div class="events-cards" id="eventsList">
-        <!-- сюда JS нарисует карточки мероприятий -->
-    </div>
+    <div class="events-cards" id="eventsList"></div>
 </section>
 
 <!-- ========================= ABOUT SECTION ========================= -->
 
 <section id="about" class="about-section">
     <h2>О проекте «Добрый Маршрут»</h2>
-
-    <p>
-        «Добрый Маршрут» — платформа, которая помогает пожилым людям и людям с ограниченными возможностями
-        быстро получить бытовую помощь: купить продукты, сходить в аптеку, оплатить услуги, сопроводить до поликлиники.
-        А волонтёры находят задания рядом с собой — по пути на учёбу или домой.
-    </p>
-    <p>
-        Проект работает в Ростове-на-Дону. Присоединяйтесь!
-    </p>
+    <p>«Добрый Маршрут» — платформа, которая помогает пожилым людям и людям с ограниченными возможностями быстро получить бытовую помощь: купить продукты, сходить в аптеку, оплатить услуги, сопроводить до поликлиники. А волонтёры находят задания рядом с собой — по пути на учёбу или домой.</p>
+    <p>Проект работает в Ростове-на-Дону. Присоединяйтесь!</p>
 </section>
-
 
 <!-- ========================= FOOTER ========================= -->
 
@@ -182,17 +122,11 @@
     <p>© 2026. Добрый Маршрут | Ростов-на-Дону</p>
 </footer>
 
-
-<!-- ========================= MODALS (LOGIN / REGISTER / ADD-NKO) ========================= -->
+<!-- ========================= MODALS ========================= -->
 
 <div id="modalContainer"></div>
 
-
-
-
-
-
-<!-- ========================= МОДАЛЬНОЕ ОКНО ========================= -->
+<!-- Модальные окна -->
 
 <div id="authModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 48px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); z-index: 10001; width: 380px;">
     <h3 style="margin: 0 0 20px 0; text-align: center;">Выберите тип аккаунта</h3>
@@ -238,132 +172,53 @@
     }
 
     // Закрыть главное окно
-    document.getElementById('closeAuthModalBtn').onclick = () => {
-        authModal.style.display = 'none';
-    };
-
-    // Выбор Волонтёра
-    document.getElementById('roleVolunteerBtn').onclick = () => {
-        authModal.style.display = 'none';
-        volunteerFormModal.style.display = 'block';
-    };
-
-    // Выбор Организации (заглушка)
-    document.getElementById('roleOrganizationBtn').onclick = () => {
-        alert('Регистрация для организаций скоро появится');
-        authModal.style.display = 'none';
-    };
-
-    // Назад из формы волонтёра
-    document.getElementById('backToRoleBtn').onclick = () => {
-        volunteerFormModal.style.display = 'none';
-        authModal.style.display = 'block';
-    };
-
-    // Назад из формы входа
-    document.getElementById('backToRoleFromLoginBtn').onclick = () => {
-        loginFormModal.style.display = 'none';
-        authModal.style.display = 'block';
-    };
-
-    // Отправка регистрации волонтёра
-    document.getElementById('submitVolunteerBtn').onclick = () => {
-        const name = document.getElementById('volName').value;
-        alert(`Спасибо за регистрацию, ${name}! Мы свяжемся с вами.`);
-        volunteerFormModal.style.display = 'none';
-    };
-
-    // Отправка входа
-    document.getElementById('submitLoginBtn').onclick = () => {
-        alert('Вход выполнен! Добро пожаловать.');
-        loginFormModal.style.display = 'none';
-    };
-
-    // Госуслуги
-    document.getElementById('gosuslugiBtn').onclick = () => {
-        alert('Перенаправление на портал Госуслуг...');
-    };
-</script>
-
-<!-- ========================= SCRIPTS ========================= -->
-
-<script src="js/api.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/modal.js"></script>
-<script src="js/map.js"></script>
-<script src="js/app.js"></script>
-
-<script>
-    document.getElementById('loginBtn').onclick = () => {
-        document.getElementById('authModal').style.display = 'flex'
-    }
-</script>
-
-
-<script>
-    // Получаем элементы
-    const authModal = document.getElementById('authModal');
-    const volunteerFormModal = document.getElementById('volunteerFormModal');
-    const loginFormModal = document.getElementById('loginFormModal');
-    const loginBtn = document.getElementById('loginBtn');
-
-    // Открыть главное окно
-    if (loginBtn) {
-        loginBtn.onclick = () => {
-            authModal.style.display = 'block';
-            volunteerFormModal.style.display = 'none';
-            loginFormModal.style.display = 'none';
-        };
-    }
-
-    // Закрыть главное окно
-    const closeAuthModalBtn = document.getElementById('closeAuthModalBtn');
-    if (closeAuthModalBtn) {
-        closeAuthModalBtn.onclick = () => {
+    const closeBtn = document.getElementById('closeAuthModalBtn');
+    if (closeBtn) {
+        closeBtn.onclick = () => {
             authModal.style.display = 'none';
         };
     }
 
-    // Выбор Волонтёра → открыть форму регистрации
-    const roleVolunteerBtn = document.getElementById('roleVolunteerBtn');
-    if (roleVolunteerBtn) {
-        roleVolunteerBtn.onclick = () => {
+    // Выбор Волонтёра
+    const volunteerBtn = document.getElementById('roleVolunteerBtn');
+    if (volunteerBtn) {
+        volunteerBtn.onclick = () => {
             authModal.style.display = 'none';
             volunteerFormModal.style.display = 'block';
         };
     }
 
     // Выбор Организации (заглушка)
-    const roleOrganizationBtn = document.getElementById('roleOrganizationBtn');
-    if (roleOrganizationBtn) {
-        roleOrganizationBtn.onclick = () => {
+    const orgBtn = document.getElementById('roleOrganizationBtn');
+    if (orgBtn) {
+        orgBtn.onclick = () => {
             alert('Регистрация для организаций скоро появится');
             authModal.style.display = 'none';
         };
     }
 
     // Назад из формы волонтёра
-    const backToRoleBtn = document.getElementById('backToRoleBtn');
-    if (backToRoleBtn) {
-        backToRoleBtn.onclick = () => {
+    const backBtn = document.getElementById('backToRoleBtn');
+    if (backBtn) {
+        backBtn.onclick = () => {
             volunteerFormModal.style.display = 'none';
             authModal.style.display = 'block';
         };
     }
 
     // Назад из формы входа
-    const backToRoleFromLoginBtn = document.getElementById('backToRoleFromLoginBtn');
-    if (backToRoleFromLoginBtn) {
-        backToRoleFromLoginBtn.onclick = () => {
+    const backFromLoginBtn = document.getElementById('backToRoleFromLoginBtn');
+    if (backFromLoginBtn) {
+        backFromLoginBtn.onclick = () => {
             loginFormModal.style.display = 'none';
             authModal.style.display = 'block';
         };
     }
 
-    // Отправка регистрации волонтёра
-    const submitVolunteerBtn = document.getElementById('submitVolunteerBtn');
-    if (submitVolunteerBtn) {
-        submitVolunteerBtn.onclick = () => {
+    // Отправка регистрации
+    const submitBtn = document.getElementById('submitVolunteerBtn');
+    if (submitBtn) {
+        submitBtn.onclick = () => {
             const name = document.getElementById('volName').value;
             if (!name) {
                 alert('Пожалуйста, введите ваше имя');
@@ -375,9 +230,9 @@
     }
 
     // Отправка входа
-    const submitLoginBtn = document.getElementById('submitLoginBtn');
-    if (submitLoginBtn) {
-        submitLoginBtn.onclick = () => {
+    const loginSubmitBtn = document.getElementById('submitLoginBtn');
+    if (loginSubmitBtn) {
+        loginSubmitBtn.onclick = () => {
             const email = document.getElementById('loginEmail').value;
             if (!email) {
                 alert('Пожалуйста, введите email');
@@ -389,25 +244,19 @@
     }
 
     // Госуслуги
-    const gosuslugiBtn = document.getElementById('gosuslugiBtn');
-    if (gosuslugiBtn) {
-        gosuslugiBtn.onclick = () => {
+    const gosuslugi = document.getElementById('gosuslugiBtn');
+    if (gosuslugi) {
+        gosuslugi.onclick = () => {
             alert('Перенаправление на портал Госуслуг...');
         };
     }
 </script>
 
+<!-- ========================= SCRIPTS ========================= -->
 
+<script src="js/api.js"></script>
+<script src="js/map.js"></script>
+<script src="js/app.js"></script>
 
-<script>
-    document.getElementById('closeAuthModalBtn').onclick = () => {
-        document.getElementById('authModal').style.display = 'none';
-    };
-</script>    
-
-
-
-
-    
 </body>
 </html>
