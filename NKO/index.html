@@ -343,7 +343,11 @@ const switchToRegFromLogin = document.getElementById('switchToRegister');
 <script src="js/map.js"></script>
 <script src="js/app.js"></script>
 
-
+<script>
+    document.getElementById('loginBtn').onclick = () => {
+        document.getElementById('authModal').style.display = 'flex'
+    }
+</script>
 
 </body>
 </html>
