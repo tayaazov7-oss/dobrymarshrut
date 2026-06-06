@@ -2870,8 +2870,6 @@ button {
 
 /* ================== AUTH MODALS ================== */
 
-/* ================== AUTH MODALS ================== */
-
 #authModal, #volunteerFormModal, #loginFormModal {
     border-radius: 48px;
     background: white;
@@ -2941,3 +2939,31 @@ button {
     border-color: #e67e22;
     outline: none;
 }
+/* ================== АДАПТАЦИЯ ПОД ТЕЛЕФОН ================== */
+
+@media (max-width: 768px) {
+    #authModal, #volunteerFormModal, #loginFormModal {
+        width: 90% !important;
+        max-width: 320px !important;
+        padding: 20px !important;
+        border-radius: 30px !important;
+    }
+
+    #authModal h3, #volunteerFormModal h3, #loginFormModal h3 {
+        font-size: 20px !important;
+    }
+
+    #authModal button, #volunteerFormModal button, #loginFormModal button {
+        padding: 8px 16px !important;
+        font-size: 14px !important;
+    }
+
+    #roleVolunteerBtn, #roleOrganizationBtn {
+        width: 120px !important;
+    }
+
+    #authModal input, #volunteerFormModal input, #loginFormModal input {
+        padding: 8px 12px !important;
+    }
+}
+
